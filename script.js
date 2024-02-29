@@ -37,7 +37,6 @@ const playGame = (function () {
     const players = {
         playerOne: "",
         playerTwo: ""
-
     };
 
     const updatePlayers = () => {
@@ -48,18 +47,31 @@ const playGame = (function () {
     }
 
     //define functions to play the game
-    const checkWin = () => {
-        //check if a line of three is complete
-
-        //check which player won
-
-    }
+    
 
     const playerTurn = () => {
 
     }
 
+    const checkWin = () => {
+        let rowWin;
+        let columnWin;
+        let diagWin;
 
+        //check if a line of three is complete
+
+        //check which player won
+        if (rowWin == true || columnWin == true || diagWin == true) {
+            return true;
+            endGame();
+        } else {
+            return false;
+        }
+    }
+
+    const endGame = () => {
+        //write game end function
+    }
 
 })
 
