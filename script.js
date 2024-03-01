@@ -83,21 +83,25 @@ const playGame = (function () {
                     }
                     allEqual(columnContents);
                 }
-
             };
 
             //create new array representing each diagonal
             //check if all elements of array match
             let diagWin = () => {
-                let diagContents = [];
-                for (let i = 0; i < 3; i++) {
-                    diagContents.push(gameboard[i][i]);
+                let diagRight = [];
+                let diagLeft = [];
+                let j = 2;
+                for (let i = 0; i <= 2; i++) {
+                    diagRight.push(gameboard[i][i]);
                 }
-                allEqual(diagContents);
+                allEqual(diagRight);
+                for (let i = 0; i <= 2; i++) {
+                    diagRight.push(gameboard[i][j]);
+                    j--;
+                } 
             };
 
             //check if a line of three is complete
-
             //check which player won
             if (rowWin == true || columnWin == true || diagWin == true) {
                 return true;
@@ -109,7 +113,8 @@ const playGame = (function () {
     }
 
     const endGame = () => {
-        //write game end function
+        //add 'Player X wins' dialog/popup
+        //Add play again button
     }
 
 })
