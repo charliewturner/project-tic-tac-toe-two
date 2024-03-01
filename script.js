@@ -67,20 +67,27 @@ const playGame = (function () {
         } else {
 
             let rowWin = () => {
-                allEqual(gameboard[i]);
-                return gameboard[i][0];
+                for (let i = 0; i < 3; i++) {
+                    allEqual(gameboard[i]);
+                    return gameboard[i][0];
+                }
             };
-
+            
+            //create new array representing each column
+            //check if all elements of array match
             let columnWin = () => {
                 let columnContents = [];
                 for (let i = 0; i < 3; i++) {
                     for (let j = 0; j < 3; j++) {
-                        columnContents.push(gameboard[i][j]);
+                        columnContents.push(gameboard[j][i]);
                     }
+                    allEqual(columnContents);
                 }
-                allEqual(columnContents);
+
             };
 
+            //create new array representing each diagonal
+            //check if all elements of array match
             let diagWin = () => {
                 let diagContents = [];
                 for (let i = 0; i < 3; i++) {
