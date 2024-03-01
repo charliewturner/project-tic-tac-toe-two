@@ -23,6 +23,7 @@ const gameboard = (function () {
         //display control elements on HTML
         //move into renderBoard?
 
+        //determine what happens upon user click
     }
 
     function startGame() {
@@ -40,15 +41,14 @@ const playGame = (function () {
     };
 
     const updatePlayers = () => {
+
+        //set playerOne/playerTwo according to user input
+        //link to confirmation button on HTML
         players.playerOne = "";
         players.playerTwo = "";
-
-        //set player names using user input
     }
 
     //define functions to play the game
-
-
     const playerTurn = () => {
 
     }
@@ -72,7 +72,7 @@ const playGame = (function () {
                     return gameboard[i][0];
                 }
             };
-            
+
             //create new array representing each column
             //check if all elements of array match
             let columnWin = () => {
@@ -91,14 +91,17 @@ const playGame = (function () {
                 let diagRight = [];
                 let diagLeft = [];
                 let j = 2;
+
                 for (let i = 0; i <= 2; i++) {
                     diagRight.push(gameboard[i][i]);
                 }
                 allEqual(diagRight);
+                
                 for (let i = 0; i <= 2; i++) {
                     diagRight.push(gameboard[i][j]);
                     j--;
                 } 
+                allEqual(diagRight);
             };
 
             //check if a line of three is complete
