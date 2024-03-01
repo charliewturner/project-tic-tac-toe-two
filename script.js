@@ -47,25 +47,57 @@ const playGame = (function () {
     }
 
     //define functions to play the game
-    
+
 
     const playerTurn = () => {
 
     }
 
     const checkWin = () => {
-        let rowWin;
-        let columnWin;
-        let diagWin;
+        let turnCount = 0;
 
-        //check if a line of three is complete
+        //turn the array into a set
+        //if all elements are equal, returns true
+        function allEqual(this) {
+            return new Set(this).size === 1;
+        }
 
-        //check which player won
-        if (rowWin == true || columnWin == true || diagWin == true) {
-            return true;
-            endGame();
-        } else {
+        if (turncount < 5) {
             return false;
+        } else {
+
+            let rowWin = () => {
+                allEqual(gameboard[i]);
+                return gameboard[i][0];
+            };
+
+            let columnWin = () => {
+                let columnContents = [];
+                for (let i = 0; i < 3; i++) {
+                    for (let j = 0; j < 3; j++) {
+                        columnContents.push(gameboard[i][j]);
+                    }
+                }
+                allEqual(columnContents);
+            };
+
+            let diagWin = () => {
+                let diagContents = [];
+                for (let i = 0; i < 3; i++) {
+                    diagContents.push(gameboard[i][i]);
+                }
+                allEqual(diagContents);
+            };
+
+            //check if a line of three is complete
+
+            //check which player won
+            if (rowWin == true || columnWin == true || diagWin == true) {
+                return true;
+                endGame();
+            } else {
+                return false;
+            }
         }
     }
 
