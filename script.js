@@ -101,19 +101,24 @@ const playGame = (function () {
                 allEqual(diagRight);
 
                 for (let i = 2; i >= 0; i--) {
-                    diagRight.push(gameboard[i][j]);
+                    diagLeft.push(gameboard[i][j]);
                     j--;
                 }
-                allEqual(diagRight);
+                allEqual(diagLeft);
             };
 
             //check if a line of three is complete
             
             if (rowWin == true || columnWin == true || diagWin == true) {
+                let winningPlayer;
                 
+                //check which symbol won the game
+                //make the user of that symbol the winningPlayer
+
                 return wonGame = () => {
                     //check which player won
                     //display winning player
+                    console.log(winningPlayer + " wins!");
                 };
             } else if (turnCount >= 9) {
                 return drawnGame = () => {
