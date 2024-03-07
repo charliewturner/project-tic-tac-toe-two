@@ -35,22 +35,25 @@ const gameboard = (function () {
 
 const playGame = (function () {
 
-    const players = {
-        playerOne: "",
-        playerTwo: ""
-    };
 
-    const updatePlayers = () => {
+
+    const updatePlayers = (playerOne, playerTwo) => {
 
         //set playerOne/playerTwo according to user input
         //link to confirmation button on HTML
-        players.playerOne = "";
-        players.playerTwo = "";
+        const players = {
+            playerOne: "",
+            playerTwo: ""
+        };
+
+        players.playerOne = playerOne;
+        players.playerTwo = playerTwo;
     }
 
     //define functions to play the game
     const playerTurn = () => {
-
+        gameboard[i][j]
+        turnCount++;
     }
 
     const checkWin = () => {
@@ -96,30 +99,37 @@ const playGame = (function () {
                     diagRight.push(gameboard[i][i]);
                 }
                 allEqual(diagRight);
-                
-                for (let i = 0; i <= 2; i++) {
+
+                for (let i = 2; i >= 0; i--) {
                     diagRight.push(gameboard[i][j]);
                     j--;
-                } 
+                }
                 allEqual(diagRight);
             };
 
             //check if a line of three is complete
-            //check which player won
+            
             if (rowWin == true || columnWin == true || diagWin == true) {
-                return true;
-                endGame();
+                
+                return wonGame = () => {
+                    //check which player won
+                    //display winning player
+                };
+            } else if (turnCount >= 9) {
+                return drawnGame = () => {
+                    //add drawn game function
+                };
             } else {
                 return false;
             }
         }
+
+
+
     }
 
-    const endGame = () => {
-        //add 'Player X wins' dialog/popup
-        //Add play again button
-    }
 
+    return { updatePlayers, playerTurn, checkWin }
 })
 
 gameboard();
