@@ -18,13 +18,7 @@ const gameboard = (function () {
         //render board on HTML
     }
 
-
-    function displayControls() {
-        //display control elements on HTML
-        //move into renderBoard?
-
-        //determine what happens upon user click
-    }
+    
 
     function startGame() {
         resetBoard();
@@ -33,10 +27,15 @@ const gameboard = (function () {
 
 });
 
+const displayControls = (function () {
+    //display control elements on HTML
+    //move into renderBoard?
+
+    //determine what happens upon user click
+})
+
+
 const playGame = (function () {
-
-
-
     const updatePlayers = (playerOne, playerTwo) => {
 
         //set playerOne/playerTwo according to user input
@@ -128,12 +127,7 @@ const playGame = (function () {
                 return false;
             }
         }
-
-
-
     }
-
-
     return { updatePlayers, playerTurn, checkWin }
 })
 
