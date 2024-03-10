@@ -18,7 +18,7 @@ const gameboard = (function () {
         //render board on HTML
     }
 
-    
+
 
     function startGame() {
         resetBoard();
@@ -60,18 +60,14 @@ const playGame = (function () {
 
         //turn the array into a set
         //if all elements are equal, returns true
-        function allEqual(this) {
-            return new Set(this).size === 1;
-        }
 
         if (turncount < 5) {
             return false;
         } else {
 
             let rowWin = () => {
-                for (let i = 0; i < 3; i++) {
-                    allEqual(gameboard[i]);
-                    return gameboard[i][0];
+                if (gameboard[0] === gameboard[1] && gameboard[0] ===gameboard[2]) {
+                    return true;
                 }
             };
 
@@ -107,10 +103,10 @@ const playGame = (function () {
             };
 
             //check if a line of three is complete
-            
+
             if (rowWin == true || columnWin == true || diagWin == true) {
                 let winningPlayer;
-                
+
                 //check which symbol won the game
                 //make the user of that symbol the winningPlayer
 
