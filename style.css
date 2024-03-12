@@ -5,20 +5,25 @@
 
 .board-container {
     display: flex;
-    width: 60%;
+    min-width: 200px;
     aspect-ratio: 1 / 1;
     border-style: dotted;
     border-color: black;
     margin: auto;
-    position: relative;
-    
     flex-wrap: wrap;
-    flex-direction: row;
+    
+    
+}
+
+.board-row {
+    border-style: solid;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .board-cell {
-    aspect-ratio: 1 / 1;
+    
     border-style: solid;
-    flex: 0 0 33.33%;
-
+    height: 50px;
+    width: 50px;
 }

@@ -69,16 +69,15 @@ const renderBoard = (function () {
     for (let i = 0; i < 3; i++) {
         let boardRow = document.createElement("div");
         boardRow.innerHTML = `
-        <div class = "board-row" id="row${i}"></div>`
-        
-
+        <div class = "board-row" id="row ${i}"></div>`
         
         for (let j = 0; j < 3; j++) {
             let boardCell = document.createElement("div")
             boardCell.innerHTML = `
-            <div class = "board-row" id="cell${j}"></div>`
+            <div class = "board-cell" id="cell ${j}"></div>`
             boardRow.appendChild(boardCell);
-        }container.appendChild(boardRow);
+        }
+        container.appendChild(boardRow);
     }
 
 })();
