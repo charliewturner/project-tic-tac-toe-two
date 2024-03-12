@@ -25,7 +25,7 @@ const gameboard = (function () {
         renderBoard();
     }
 
-    
+
 
 
 
@@ -45,7 +45,7 @@ const displayControls = (function () {
     //determine what happens upon user click
 })();
 
-const renderBoard = (function() {
+const renderBoard = (function () {
     //render board on HTML
 
     //Example to build off for rendering the gameboard
@@ -66,13 +66,21 @@ const renderBoard = (function() {
     let container = document.querySelector("#board-container");
     container.innerHTML = '';
 
-    for (let i = 0; i < 10; i++) {
-        let boardCell = document.createElement("div");
-        boardCell.innerHTML = `
-        <div class = "board-cell id="${i}">`
-        container.appendChild(boardCell);
+    for (let i = 0; i < 3; i++) {
+        let boardRow = document.createElement("div");
+        boardRow.innerHTML = `
+        <div class = "board-row" id="row${i}"></div>`
+        
+
+        
+        for (let j = 0; j < 3; j++) {
+            let boardCell = document.createElement("div")
+            boardCell.innerHTML = `
+            <div class = "board-row" id="cell${j}"></div>`
+            boardRow.appendChild(boardCell);
+        }container.appendChild(boardRow);
     }
-    
+
 })();
 
 const playGame = (function () {

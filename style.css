@@ -1,19 +1,24 @@
-.webpage-header{
+.webpage-header {
     margin: auto;
     padding: auto;
 }
-.board-container{
+
+.board-container {
+    display: flex;
     width: 60%;
     aspect-ratio: 1 / 1;
     border-style: dotted;
     border-color: black;
     margin: auto;
     position: relative;
-
-
+    
+    flex-wrap: wrap;
+    flex-direction: row;
 }
-.board-cell{
+
+.board-cell {
     aspect-ratio: 1 / 1;
-    width: 33%;
-    position: absolute;
+    border-style: solid;
+    flex: 0 0 33.33%;
+
 }
