@@ -28,6 +28,21 @@ const gameboard = (function () {
     function renderBoard() {
         //render board on HTML
 
+        //Example to build off for rendering the gameboard
+        /* for (let i = 0; i < myLibrary.length; i++) {
+            let book = myLibrary[i];
+            let bookElement = document.createElement("div");
+            bookElement.innerHTML = `
+            <div class = "book-card" id=${i}>
+             <h3 class = "title">${book.title}</h3>
+      
+            <br />
+             <h5 class = "author">by ${book.author}</h5><br />
+             <h5 class = "page-count">${book.pageCount} pages</h5><br />
+             <h5 class = "read-status">Read status: ${book.readStatus}</h5><br />
+             <button type = "button" class="changeReadStatus" onclick="changeReadStatus(${i})">Change read status</button><br />
+             <button type = "button" class="delete" onclick="deleteBook(${i})">Delete!</button>
+             </div> `; **/
     }
 
 

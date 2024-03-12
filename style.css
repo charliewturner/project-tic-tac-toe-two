@@ -1,0 +1,12 @@
+.webpage-header{
+    margin: auto;
+    padding: auto;
+}
+.board-container{
+    width: 60%;
+    aspect-ratio: 1 / 1;
+    border-style: dotted;
+    border-color: black;
+    margin: auto;
+
+}
