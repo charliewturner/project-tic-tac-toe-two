@@ -25,7 +25,7 @@ const gameboard = (function () {
         renderBoard();
     }
 
-    function renderBoard() {
+    function renderBoard(i, j) {
         //render board on HTML
 
         //Example to build off for rendering the gameboard
@@ -43,16 +43,29 @@ const gameboard = (function () {
              <button type = "button" class="changeReadStatus" onclick="changeReadStatus(${i})">Change read status</button><br />
              <button type = "button" class="delete" onclick="deleteBook(${i})">Delete!</button>
              </div> `; **/
+        let container = document.getElementsByClassName("gameboard-container");
+        container.innerHTML = '';
+
+
+        for (let i = 0; i < gameboard.length; i++) {
+            let boardRow = document.createElement("div");
+            let boardCell = document.createElement("div");
+            boardCell.innerHTML = `
+            <div class = "board-cell">`
+        } 
+            libraryElement.appendChild(bookElement);
     }
+
+}
 
 
 
     function startGame() {
-        resetBoard();
-        playGame();
-    }
+    resetBoard();
+    playGame();
+}
 
-})();
+}) ();
 
 const displayControls = (function () {
     //display control elements on HTML
@@ -80,6 +93,7 @@ const playGame = (function () {
     const playerTurn = () => {
         gameboard[i][j]
         turnCount++;
+        checkWin();
     }
 
     const checkWin = () => {
