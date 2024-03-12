@@ -8,5 +8,12 @@
     border-style: dotted;
     border-color: black;
     margin: auto;
+    position: relative;
 
+
+}
+.board-cell{
+    aspect-ratio: 1 / 1;
+    width: 33%;
+    position: absolute;
 }
