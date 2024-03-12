@@ -70,8 +70,9 @@ const renderBoard = (function() {
         let boardCell = document.createElement("div");
         boardCell.innerHTML = `
         <div class = "board-cell id="${i}">`
+        container.appendChild(boardCell);
     }
-    libraryElement.appendChild(bookElement);
+    
 })();
 
 const playGame = (function () {
