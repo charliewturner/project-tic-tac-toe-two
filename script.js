@@ -37,7 +37,7 @@ const displayController = (function () {
 
 
 
-const playGame = (function () {
+const Game = (function () {
     const updatePlayers = (playerOne, playerTwo) => {
 
         //set playerOne/playerTwo according to user input

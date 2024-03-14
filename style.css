@@ -4,20 +4,8 @@
 }
 
 #board-container {
-    border-style: dotted;
-    border-color: black;
-    display: grid;
-    grid-template-columns: repeat(3, 200px);
-    grid-template-rows: repeat(3, 200px);
-    gap: 10px;
-
+   
     
 }
 
 
-.board-cell {
-    display: flex;
-    flex: auto;
-    border-style: solid;
-   
-}
