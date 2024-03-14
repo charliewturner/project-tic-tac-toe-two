@@ -1,17 +1,23 @@
 const gameboard = (function () {
-    
-    let gameboard = ["","","","","","","","","",];
-    
-    const renderBoard = ( () => {
+
+    let gameboard = ["", "", "", "", "", "", "", "", "",];
+
+    const renderBoard = (() => {
         let boardHTML = "";
 
-        gameboard.forEach((square, index) =>{
+        gameboard.forEach((square, index) => {
             boardHTML += `<div class="square" id=${index}>${square}</div>`
-        })
-    
+        });
+        document.getElementById("board-container").innerHTML = boardHTML;
 
-    })();
+    });
 
+
+
+    return {
+        renderBoard,
+
+    }
 })();
 
 
@@ -41,7 +47,7 @@ const Game = (function () {
         players.playerOne = playerOne;
         players.playerTwo = playerTwo;
     }
- 
+
     const playerTurn = () => {
         gameboard[i][j]
         turnCount++;
@@ -53,15 +59,15 @@ const Game = (function () {
         //then a player has won the game
         [0, 1, 2],
         [3, 4, 5],
-        [6 ,7 ,8],
+        [6, 7, 8],
         [0, 3, 6],
         [1, 4, 7],
         [2, 5, 8],
         [0, 4, 8],
         [2, 4, 6],
     ];
-        
-    
+
+
 
 
 
