@@ -3,22 +3,21 @@
     padding: auto;
 }
 
-.board-container {
-    display: flex;
-    min-width: 200px;
-    aspect-ratio: 1 / 1;
+#board-container {
     border-style: dotted;
     border-color: black;
-    margin: auto;
-    flex-wrap: wrap;
-    
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(3, 200px);
+    gap: 10px;
+
     
 }
 
 
 .board-cell {
-    
+    display: flex;
+    flex: auto;
     border-style: solid;
-    height: 50px;
-    width: 50px;
+   
 }
