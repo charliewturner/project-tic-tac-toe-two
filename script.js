@@ -16,12 +16,10 @@ const Gameboard = (function () {
 
     });
 
-
-
     return {
         renderBoard,
-
     }
+
 })();
 
 
@@ -41,11 +39,7 @@ const Game = (function () {
         Gameboard.renderBoard();
     }
 
-    const playerTurn = () => {
-        gameboard[i][j]
-        turnCount++;
-        checkWin();
-    }
+
 
     const winConditions = [
         //if the three cells relating to the arrays below contain the same symbol
