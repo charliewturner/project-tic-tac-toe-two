@@ -17,13 +17,11 @@ const Gameboard = (function () {
     const renderBoard = () => {
         let boardHTML = "";
         
-
         gameboard.forEach((square, index) => {
             boardHTML += `<div class="square" id=${index}>${square}</div>`
         });
         let container = document.getElementById('board-container');
         container.innerHTML = boardHTML;
-
     };
 
     return {
