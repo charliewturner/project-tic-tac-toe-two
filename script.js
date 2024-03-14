@@ -2,19 +2,29 @@
 const startButton = document.getElementById("startButton");
 const restartButton = document.getElementById("restartButton");
 
-const Gameboard = (function () {
 
+startButton.addEventListener("click", () => {
+    Game.start();
+})
+
+restartButton.addEventListener("click", () => {
+    Game.restart();
+})
+
+const Gameboard = (function () {
     let gameboard = ["", "", "", "", "", "", "", "", "",];
 
-    const renderBoard = (() => {
+    const renderBoard = () => {
         let boardHTML = "";
+        
 
         gameboard.forEach((square, index) => {
             boardHTML += `<div class="square" id=${index}>${square}</div>`
         });
-        document.getElementById("board-container").innerHTML = boardHTML;
+        let container = document.getElementById('board-container');
+        container.innerHTML = boardHTML;
 
-    });
+    };
 
     return {
         renderBoard,
@@ -27,19 +37,27 @@ const Game = (function () {
     let currentPlayerIndex;
     let gameOverStatus;
 
+    const createPlayer = (name, symbol) => {
+        return {
+            name,
+            symbol
+        }
+    }
 
-    //use a factory to generate players
     const start = (name, symbol) => {
         players = [
-            createPlayer(document.querySelector("playerOne").value, "X"),
-            createPlayer(document.querySelector("playerTwo").value, "O")
+            createPlayer(document.querySelector("#playerOne").value, "X"),
+            createPlayer(document.querySelector("#playerTwo").value, "O")
         ]
         currentPlayerIndex = 0;
         gameOverStatus = false;
         Gameboard.renderBoard();
+
     }
 
+    const restart = () => {
 
+    }
 
     const winConditions = [
         //if the three cells relating to the arrays below contain the same symbol
@@ -55,91 +73,10 @@ const Game = (function () {
     ];
 
 
+    return {
+        start
+    }
 
-
-
-
-
-    // const checkWin = () => {
-    //     let turnCount = 0;
-
-
-    //     //turn the array into a set
-    //     //if all elements are equal, returns true
-
-    //     if (turncount < 5) {
-    //         return false;
-    //     } else {
-
-    //         let rowWin = () => {
-    //             for (i = 0; i <= 2; i++) {
-    //                 if (gameboard[i][0] === gameboard[i][1] &&
-    //                     gameboard[i][0] === gameboard[i][2]) {
-    //                     return true;
-    //                 } else {
-    //                     return false;
-    //                 }
-    //             }
-    //         };
-
-
-    //         let columnWin = () => {
-    //             for (i = 0; i <= 2; i++) {
-
-    //                 if (gameboard[0][i] === gameboard[1][i] &&
-    //                     gameboard[0][i] === gameboard[2][i]) {
-    //                     return true;
-    //                 } else {
-    //                     return false;
-
-    //                 }
-    //             };
-
-    //             //create new array representing each diagonal
-    //             //check if all elements of array match
-    //             let diagWin = () => {
-    //                 const allEqual = arr => arr.every(val => val === arr[0]);
-    //                 let diagRight = [];
-    //                 let diagLeft = [];
-    //                 let j = 2;
-
-    //                 for (let i = 0; i <= 2; i++) {
-    //                     diagRight.push(gameboard[i][i]);
-    //                 }
-    //                 allEqual(diagRight);
-
-    //                 for (let i = 2; i >= 0; i--) {
-    //                     diagLeft.push(gameboard[i][j]);
-    //                     j--;
-    //                 }
-
-    //                 allEqual(diagLeft);
-    //             };
-
-    //             //check if a line of three is complete
-
-    //             if (rowWin == true || columnWin == true || diagWin == true) {
-    //                 let winningPlayer;
-
-    //                 //check which symbol won the game
-    //                 //make the user of that symbol the winningPlayer
-
-    //                 return wonGame = () => {
-    //                     //check which player won
-    //                     //display winning player
-    //                     console.log(winningPlayer + " wins!");
-    //                 };
-    //             } else if (turnCount >= 9) {
-    //                 return drawnGame = () => {
-    //                     //add drawn game function
-    //                 };
-    //             } else {
-    //                 return false;
-    //             }
-    //         }
-    //     }
-
-    // }
 })();
 
 
