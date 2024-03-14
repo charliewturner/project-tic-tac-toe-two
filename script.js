@@ -29,6 +29,7 @@ const Gameboard = (function () {
         })
     };
 
+    const update
     return {
         renderBoard,
     }
@@ -56,6 +57,10 @@ const Game = (function () {
         gameOverStatus = false;
         Gameboard.renderBoard();
 
+        const squares = document.querySelectorAll(".square");
+        squares.forEach((square) => {
+            square.addEventListener("click", handleClick);
+        })
     }
 
     const restart = () => {
