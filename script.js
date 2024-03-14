@@ -1,4 +1,8 @@
-const gameboard = (function () {
+
+const startButton = document.getElementById("startButton");
+const restartButton = document.getElementById("restartButton");
+
+const Gameboard = (function () {
 
     let gameboard = ["", "", "", "", "", "", "", "", "",];
 
@@ -21,31 +25,20 @@ const gameboard = (function () {
 })();
 
 
-const startButton = document.getElementById("startButton");
-const restartButton = document.getElementById("restartButton");
-
-
-const displayController = (function () {
-    //display control elements on HTML
-    //move into renderBoard?
-
-    //determine what happens upon user click
-})();
-
-
-
 const Game = (function () {
-    const updatePlayers = (playerOne, playerTwo) => {
+    let currentPlayerIndex;
+    let gameOverStatus;
 
-        //set playerOne/playerTwo according to user input
-        //link to confirmation button on HTML
-        const players = {
-            playerOne: "",
-            playerTwo: ""
-        };
 
-        players.playerOne = playerOne;
-        players.playerTwo = playerTwo;
+    //use a factory to generate players
+    const start = (name, symbol) => {
+        players = [
+            createPlayer(document.querySelector("playerOne").value, "X"),
+            createPlayer(document.querySelector("playerTwo").value, "O")
+        ]
+        currentPlayerIndex = 0;
+        gameOverStatus = false;
+        Gameboard.renderBoard();
     }
 
     const playerTurn = () => {
@@ -154,4 +147,16 @@ const Game = (function () {
 
     // }
 })();
+
+
+
+const displayController = (function () {
+    //display control elements on HTML
+    //move into renderBoard?
+
+    //determine what happens upon user click
+})();
+
+
+
 
