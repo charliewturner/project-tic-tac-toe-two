@@ -22,6 +22,11 @@ const Gameboard = (function () {
         });
         let container = document.getElementById('board-container');
         container.innerHTML = boardHTML;
+
+        const squares = document.querySelectorAll(".square");
+        squares.forEach((square) => {
+            square.addEventListener("click", Game.handleClick);
+        })
     };
 
     return {
@@ -57,6 +62,11 @@ const Game = (function () {
 
     }
 
+    const handleClick = (event) => {
+        let index = parseInt(event.target.id.split("-"));
+        console.log(index);
+    }
+
     const winConditions = [
         //if the three cells relating to the arrays below contain the same symbol
         //then a player has won the game
@@ -72,7 +82,10 @@ const Game = (function () {
 
 
     return {
-        start
+        start,
+        handleClick,
+        createPlayer,
+
     }
 
 })();
