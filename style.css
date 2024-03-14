@@ -4,8 +4,10 @@
 }
 
 #board-container {
-   
-    
+   border-style: solid;
+
+    width: 600px;
+    aspect-ratio: 1/1;
 }
 
 

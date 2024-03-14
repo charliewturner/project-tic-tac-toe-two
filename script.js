@@ -1,32 +1,23 @@
 const gameboard = (function () {
+    
+    let gameboard = ["","","","","","","","","",];
+    
+    const renderBoard = ( () => {
+        let boardHTML = "";
 
-    //gameboard should contain an array of arrays 
-    //containing the content of the boxes (3x3 empty to start)
-    // let gameboard = [];
-
-    // for (let i = 0; i < 3; i++) {
-    //     let row = [];
-    //     for (let j = 0; j < 3; j++) {
-    //         row.push('');
-    //     }
-    //     gameboard.push(row);
-    // }
-
-    // function resetBoard() {
-    //     let gameboard = [];
-    //     for (let i = 0; i < 3; i++) {
-    //         let row = [];
-    //         for (let j = 0; j < 3; j++) {
-    //             row.push('');
-    //         }
-    //         gameboard.push(row);
-    //     }
-    //     renderBoard();
-    // }
-
+        gameboard.forEach((square, index) =>{
+            boardHTML += `<div class="square" id=${index}>${square}</div>`
+        })
     
 
+    })();
+
 })();
+
+
+const startButton = document.getElementById("startButton");
+const restartButton = document.getElementById("restartButton");
+
 
 const displayController = (function () {
     //display control elements on HTML
@@ -50,8 +41,7 @@ const Game = (function () {
         players.playerOne = playerOne;
         players.playerTwo = playerTwo;
     }
-
-    //define functions to play the game
+ 
     const playerTurn = () => {
         gameboard[i][j]
         turnCount++;
@@ -59,6 +49,8 @@ const Game = (function () {
     }
 
     const winConditions = [
+        //if the three cells relating to the arrays below contain the same symbol
+        //then a player has won the game
         [0, 1, 2],
         [3, 4, 5],
         [6 ,7 ,8],
