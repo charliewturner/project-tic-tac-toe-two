@@ -35,9 +35,15 @@ const Gameboard = (function () {
 
     }
 
+    const getGameboard = () => gameboard;
+
+
+
     return {
         renderBoard,
         update,
+        getGameboard,
+        gameboard,
     }
 
 })();
@@ -69,16 +75,23 @@ const Game = (function () {
         })
     }
 
-    // const checkWin = () => {
-    //     let winArray = winConditions.map(i => Gameboard.gameboard[i]);
-    //     console.log(winArray);
+    const checkWin = (board) => {
+        for (let i = 0; i < winConditions.length; i++) {
+            const [a, b, c] = winConditions[i];
+            if (board[a] &&
+                board[a] === board[b] &&
+                board[a] === board[c]) {
+                return true;
+            } else {
+                return false
+            }
+        }
 
-    // }
+    }
 
     const restart = () => {
         for (let i = 0; i < 9; i++) {
             Gameboard.update(i, "");
-
         }
         Gameboard.renderBoard();
     }
@@ -86,7 +99,7 @@ const Game = (function () {
 
 
     const handleClick = (event) => {
-        // checkWin();
+
         let index = parseInt(event.target.id.split("-"));
         if (event.target.innerHTML != "") {
             return;
@@ -94,6 +107,9 @@ const Game = (function () {
             Gameboard.update(index, players[currentPlayerIndex].symbol);
             currentPlayerIndex == 0 ? currentPlayerIndex = 1 : currentPlayerIndex = 0;
         }
+        if (checkWin(Gameboard.getGameboard(), players[currentPlayerIndex].symbol)) {
+            alert(`${players[currentPlayerIndex].name} won!`);
+        };
     }
 
     const winConditions = [
