@@ -32,6 +32,7 @@ const Gameboard = (function () {
     const update = (index, value) => {
         gameboard[index] = value;
         renderBoard();
+        
     }
 
     return {
@@ -78,6 +79,7 @@ const Game = (function () {
     const handleClick = (event) => {
         let index = parseInt(event.target.id.split("-"));
         Gameboard.update(index, players[currentPlayerIndex].symbol);
+        currentPlayerIndex == 0 ? currentPlayerIndex = 1 : currentPlayerIndex = 0;
     }
 
     const winConditions = [
