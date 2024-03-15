@@ -16,7 +16,7 @@ const Gameboard = (function () {
 
     const renderBoard = () => {
         let boardHTML = "";
-        
+
         gameboard.forEach((square, index) => {
             boardHTML += `<div class="square" id=${index}>${square}</div>`
         });
@@ -32,7 +32,7 @@ const Gameboard = (function () {
     const update = (index, value) => {
         gameboard[index] = value;
         renderBoard();
-        
+
     }
 
     return {
@@ -69,17 +69,21 @@ const Game = (function () {
         })
     }
 
-    
+
     const restart = () => {
 
     }
 
-    
+
 
     const handleClick = (event) => {
         let index = parseInt(event.target.id.split("-"));
-        Gameboard.update(index, players[currentPlayerIndex].symbol);
-        currentPlayerIndex == 0 ? currentPlayerIndex = 1 : currentPlayerIndex = 0;
+        if (event.target.innerHTML != "") {
+            alert("Invalid selection");
+        } else {
+            Gameboard.update(index, players[currentPlayerIndex].symbol);
+            currentPlayerIndex == 0 ? currentPlayerIndex = 1 : currentPlayerIndex = 0;
+        }
     }
 
     const winConditions = [
@@ -100,7 +104,7 @@ const Game = (function () {
         start,
         handleClick,
         createPlayer,
-       
+
 
     }
 
