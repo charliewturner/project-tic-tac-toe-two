@@ -29,9 +29,14 @@ const Gameboard = (function () {
         })
     };
 
-    const update
+    const update = (index, value) => {
+        gameboard[index] = value;
+        renderBoard();
+    }
+
     return {
         renderBoard,
+        update,
     }
 
 })();
@@ -63,13 +68,16 @@ const Game = (function () {
         })
     }
 
+    
     const restart = () => {
 
     }
 
+    
+
     const handleClick = (event) => {
         let index = parseInt(event.target.id.split("-"));
-        console.log(index);
+        Gameboard.update(index, players[currentPlayerIndex].symbol);
     }
 
     const winConditions = [
@@ -90,6 +98,7 @@ const Game = (function () {
         start,
         handleClick,
         createPlayer,
+       
 
     }
 
