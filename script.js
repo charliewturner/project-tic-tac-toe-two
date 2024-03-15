@@ -69,17 +69,27 @@ const Game = (function () {
         })
     }
 
+    // const checkWin = () => {
+    //     let winArray = winConditions.map(i => Gameboard.gameboard[i]);
+    //     console.log(winArray);
+
+    // }
 
     const restart = () => {
+        for (let i = 0; i < 9; i++) {
+            Gameboard.update(i, "");
 
+        }
+        Gameboard.renderBoard();
     }
 
 
 
     const handleClick = (event) => {
+        // checkWin();
         let index = parseInt(event.target.id.split("-"));
         if (event.target.innerHTML != "") {
-            alert("Invalid selection");
+            return;
         } else {
             Gameboard.update(index, players[currentPlayerIndex].symbol);
             currentPlayerIndex == 0 ? currentPlayerIndex = 1 : currentPlayerIndex = 0;
@@ -104,6 +114,8 @@ const Game = (function () {
         start,
         handleClick,
         createPlayer,
+        restart,
+        winConditions,
 
 
     }
