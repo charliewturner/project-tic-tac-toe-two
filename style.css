@@ -43,7 +43,10 @@
     font-size: 80px;
     border-style: solid;
     height: 200px;
-    
+}
 
-
+#message {
+    margin-top: 30px;
+    font-weight: bold;
+    font-size: large;
 }

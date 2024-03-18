@@ -1,6 +1,7 @@
 const startButton = document.getElementById("startButton");
 const restartButton = document.getElementById("restartButton");
 
+
 startButton.addEventListener("click", () => {
     Game.start();
 })
@@ -46,7 +47,6 @@ const Gameboard = (function () {
 
 })();
 
-
 const Game = (function () {
     let currentPlayerIndex;
     let gameOverStatus;
@@ -73,8 +73,6 @@ const Game = (function () {
         })
     }
 
-
-
     const restart = () => {
         for (let i = 0; i < 9; i++) {
             Gameboard.update(i, "");
@@ -93,13 +91,12 @@ const Game = (function () {
 
         if (checkWin(Gameboard.getGameboard(), players[currentPlayerIndex].symbol)) {
             gameOverStatus = true;
-    
+
         };
     }
 
-
     function checkWin(board) {
-        
+
         const winConditions = [
             //if the three cells relating to the arrays below contain the same symbol
             //then a player has won the game
@@ -129,34 +126,13 @@ const Game = (function () {
         }
 
         if (roundWon) {
-            alert(`${players[currentPlayerIndex].name} won!`);
+            displayController.renderMessage(`${players[currentPlayerIndex].name} won!`);
             return;
         }
 
         if (!board.includes(''))
-            alert(`Its a tie!`);;
+            displayController.renderMessage(`Its a tie!`);;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     return {
         start,
@@ -169,11 +145,14 @@ const Game = (function () {
 
 
 
-const displayController = (function () {
-    //display control elements on HTML
-    //move into renderBoard?
+const displayController = (() => {
+    const renderMessage = (message) => {
+        document.querySelector("#message").innerHTML = message;
+    }
+    return {
+        renderMessage,
+    }
 
-    //determine what happens upon user click
 })();
 
 
