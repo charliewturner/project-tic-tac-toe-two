@@ -93,14 +93,13 @@ const Game = (function () {
 
         if (checkWin(Gameboard.getGameboard(), players[currentPlayerIndex].symbol)) {
             gameOverStatus = true;
-            alert(`${players[currentPlayerIndex].name} won!`);
-            console.log("weeeE");
+    
         };
     }
 
 
     function checkWin(board) {
-
+        
         const winConditions = [
             //if the three cells relating to the arrays below contain the same symbol
             //then a player has won the game
@@ -131,7 +130,6 @@ const Game = (function () {
 
         if (roundWon) {
             alert(`${players[currentPlayerIndex].name} won!`);
-            console.log("weeeE");
             return;
         }
 
