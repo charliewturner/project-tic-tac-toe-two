@@ -78,6 +78,7 @@ const Game = (function () {
             Gameboard.update(i, "");
         }
         Gameboard.renderBoard();
+        document.querySelector("#message").innerHTML = "";
     }
 
     const handleClick = (event) => {
